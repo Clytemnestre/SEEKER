@@ -1,0 +1,79 @@
+September 6:
+
+What was done?
+Nothing. Day 01 
+
+What will be done?
+Get a github
+Set up a github.
+Make github work
+Get project approval
+Implement database
+Figure out how to create a log in (test log in)
+
+Where do I need assistance? 
+Everything to do with the github. 
+****************************************************************************
+September 7 
+What was done?
+Got a github
+Got project approval
+
+What will be done?
+Set up a github.
+Make github work
+Figure out why the local database keeps disappearing. 
+Figure out how to create a log in (test log in)
+Do the design for the job seeker and employer registration form. 
+Revise design of database to have two log in (One for job seeker and the one for employers)
+Implement database
+
+Where do I need assistance? 
+Everything to do with github
+The test login throws a SQLexception (The same as during the exam, still unable to resolve it.)
+How to set up a Database with Azure. 
+****************************************************************************
+September 8 
+What was done?
+Login test
+Do the design for the job seeker and employer registration form. 
+Figure out why the local database keeps disappearing.
+Do the design for the job seeker and employer registration form. 
+
+What will be done?
+Set up a github.
+Make github work
+Find a solution to the “getJobOfferByQualifications” and the “getJobSeekerByQualifications” problem.
+
+Where do I need assistance? 
+Everything to do with github
+****************************************************************************
+September 9 
+What was done?
+Login Employer
+set up Github
+set up Trello
+
+What will be done?
+employer registration
+Job seeker registration
+Job seeker log in
+learn how to make the pages communicate
+
+Where do I need assistance? 
+learn how to make the page communicate
+****************************************************************************
+September 9 (PRE WEEK END)
+What was done?
+employer registration
+Job seeker registration
+Job seeker log in
+learned how to make the pages communicate
+
+What will be done?
+employer homepage
+Job seeker homepage
+
+Where do I need assistance? 
+Learn how to control the tabcontrol (that thing is outta control!)
+****************************************************************************

@@ -53,6 +53,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="EmployerHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployerRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="JobSeekerHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="JobSeekerRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +78,19 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="EmployerHomePage.xaml.cs">
+      <DependentUpon>EmployerHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployerRegistration.xaml.cs">
+      <DependentUpon>EmployerRegistration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Globals.cs" />
+    <Compile Include="JobSeekerHomePage.xaml.cs">
+      <DependentUpon>JobSeekerHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeekerRegistration.xaml.cs">
+      <DependentUpon>JobSeekerRegistration.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

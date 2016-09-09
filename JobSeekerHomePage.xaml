@@ -1,0 +1,22 @@
+﻿<Window x:Class="Seeker.JobSeekerHomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="JobSeekerHomePage" Height="1000" Width="1000">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="970" VerticalAlignment="Top" Width="992" TabStripPlacement="Left">
+            <TabItem Header="Account" Margin="0,-2,-33,-38">
+                <Grid Background="#FFE5E5E5" Margin="40,0,0,0"/>
+            </TabItem>
+            <TabItem Header="Profile" Margin="0,37,-33,-77">
+                <Grid Background="#FFE5E5E5" Margin="40,0,0,0"/>
+            </TabItem>
+            <TabItem Header="Job Search" Margin="0,76,-33,-116">
+                <Grid Background="#FFE5E5E5" Margin="40,0,0,0"/>
+            </TabItem>
+            <TabItem Header="Applied for" Margin="0,116,-33,-156">
+                <Grid Background="#FFE5E5E5" Margin="40,0,0,0"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
