@@ -3,12 +3,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="JobSeekerHomePage" Height="1000" Width="1000">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="970" VerticalAlignment="Top" Width="992" TabStripPlacement="Left">
-            <TabItem Header="Account" Margin="0,-2,-33,-38">
-                <Grid Background="#FFE5E5E5" Margin="40,0,0,0"/>
+        <TabControl x:Name="tbEducation" HorizontalAlignment="Left" Height="970" VerticalAlignment="Top" Width="992" TabStripPlacement="Left">
+            <TabItem Header="Profile" Margin="0,-2,-33,-38">
+                <Grid>
+                    <Grid Background="#FFE5E5E5" Margin="40,0,0,0">
+                        <TextBox x:Name="tbEducation1" IsEnabled="False" TextWrapping="Wrap" Text="" Margin="390,88,100,512" AcceptsReturn="True"/>
+                        <Label Content="Education" HorizontalAlignment="Left" Margin="97,78,0,0" VerticalAlignment="Top" Height="58" Width="169" FontSize="36"/>
+                        <Button x:Name="btnUpdateEducation" Content="Update" HorizontalAlignment="Left" Margin="97,153,0,0" VerticalAlignment="Top" Width="169" Height="23" Click="btnUpdateEducation_Click"/>
+                        <Button x:Name="btnSaveEducation" Content="Save" HorizontalAlignment="Left" Margin="97,192,0,0" VerticalAlignment="Top" Width="169" Height="23" Click="btnSaveEducation_Click"/>
+                        <TextBox x:Name="tbExperience" IsEnabled="False" TextWrapping="Wrap" Text="" Margin="390,526,100,73" AcceptsReturn="True"/>
+                        <Label Content="Experience" HorizontalAlignment="Left" Margin="97,515,0,0" VerticalAlignment="Top" Height="58" Width="180" FontSize="36"/>
+                        <Button x:Name="btnUpdateExperience" Content="Update" HorizontalAlignment="Left" Margin="97,589,0,0" VerticalAlignment="Top" Width="169" Height="23" Click="btnUpdateExperience_Click"/>
+                        <Button x:Name="btnSaveExperience" Content="Save" HorizontalAlignment="Left" Margin="97,628,0,0" VerticalAlignment="Top" Width="169" Height="23" Click="btnSaveExperience_Click"/>
+                    </Grid>
+                </Grid>
             </TabItem>
-            <TabItem Header="Profile" Margin="0,37,-33,-77">
-                <Grid Background="#FFE5E5E5" Margin="40,0,0,0"/>
+            <TabItem Header="Account" Margin="0,37,-33,-77">
+                <Grid Background="#FFE5E5E5" Margin="40,0,0,583">
+                    <Label HorizontalAlignment="Left" Margin="59,53,0,0" VerticalAlignment="Top" Height="28" Width="67" Content="First name"/>
+                    <Label HorizontalAlignment="Left" Margin="59,115,0,0" VerticalAlignment="Top" Height="28" Width="67" Content="Last name"/>
+                    <Label HorizontalAlignment="Left" Margin="59,177,0,0" VerticalAlignment="Top" Height="28" Width="87" Content="Email Address"/>
+                    <Label HorizontalAlignment="Left" Margin="59,232,0,0" VerticalAlignment="Top" Height="28" Width="96" Content="Phone Number"/>
+                    <Label HorizontalAlignment="Left" Margin="415,53,0,0" VerticalAlignment="Top" Height="28" Width="61" Content="Password"/>
+                    <Button x:Name="btnChangePassword" Content="Change Password" HorizontalAlignment="Left" Margin="415,115,0,0" VerticalAlignment="Top" Width="167" Click="btnChangePassword_Click"/>
+                    <Label x:Name="lblNewPassword" Content="New Password : " HorizontalAlignment="Left" Margin="415,179,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lblConfirmNewPassword" Visibility="Hidden" Content="Confirm New Password : " HorizontalAlignment="Left" Margin="415,234,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbAccountPhoneNumber" HorizontalAlignment="Left" Height="23" Margin="160,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="160,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="160,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
+                    <TextBox x:Name="tbConfirmNewPassword" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="571,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="160,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
+                    <TextBox x:Name="tbNewPassword" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="571,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="571,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
+                    <Button x:Name="btnUdateAccountInformation" Content="SAVE" HorizontalAlignment="Left" Margin="624,318,0,0" VerticalAlignment="Top" Width="219" Height="39"/>
+
+
+
+                </Grid>
             </TabItem>
             <TabItem Header="Job Search" Margin="0,76,-33,-116">
                 <Grid Background="#FFE5E5E5" Margin="40,0,0,0"/>
@@ -16,6 +47,7 @@
             <TabItem Header="Applied for" Margin="0,116,-33,-156">
                 <Grid Background="#FFE5E5E5" Margin="40,0,0,0"/>
             </TabItem>
+
         </TabControl>
 
     </Grid>

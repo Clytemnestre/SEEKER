@@ -82,27 +82,8 @@ namespace Seeker
                 MessageBox.Show("The passwords entered do not match", "Registration error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
-            // validate that there is at least some kind of entry in the Education text box
-            string education = tbEducation.Text;
-
-            if (education.Length < 15)
-            {
-                MessageBox.Show("Please give us some details about your education", "Registration error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            // validate that there is at least some kind of entry in the Experience text box
-            string experience = tbExperience.Text;
-
-            if (experience.Length < 15)
-            {
-                MessageBox.Show("Please give us some details about your previous or current work experience", "Registration error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
             // create a new Job Seeker
-            JobSeeker jobseeker = new JobSeeker { JSFirstName = firstName, JSLastName = lastName, JSEmail = email, JSPassword = password1, JSEducation = education, JSsExperience = experience, JSPhone = phone };
+            JobSeeker jobseeker = new JobSeeker { JSFirstName = firstName, JSLastName = lastName, JSEmail = email, JSPassword = password1, JSPhone = phone };
 
             // call the method in the database class to add the newly acquired data into the database
             try

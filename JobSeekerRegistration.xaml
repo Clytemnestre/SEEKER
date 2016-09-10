@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Seeker.JobSeekerRegistration"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="JobSeekerRegistration" Height="964" Width="800">
+        Title="JobSeekerRegistration" Height="398" Width="800">
     <Grid>
         <Label Content="Job seeker registration form" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,40,0,0" FontSize="18" Width="243"/>
         <Label Content="First Name : " HorizontalAlignment="Left" Margin="54,90,0,0" VerticalAlignment="Top" Width="103"/>
@@ -10,17 +10,13 @@
         <Label Content="Choose a password : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="416,90,0,0" Width="126"/>
         <Label Content="Confirm password : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="416,133,0,0" Width="126"/>
         <Label Content="Phone Number : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="54,216,0,0" Width="126"/>
-        <Label Content="Tell us about your education" HorizontalAlignment="Left" Margin="54,282,0,0" VerticalAlignment="Top" Width="170"/>
-        <Label Content="Tell us about your previous work experience" HorizontalAlignment="Left" Margin="54,547,0,0" VerticalAlignment="Top" Width="248"/>
-        <TextBox x:Name="tbEducation" HorizontalAlignment="Left" Height="220" Margin="64,322,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="648" AcceptsReturn="True"/>
-        <TextBox x:Name="tbExperience" HorizontalAlignment="Left" Height="220" Margin="64,579,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="648" AcceptsReturn="True"/>
         <TextBox x:Name="tbJSFirstName" HorizontalAlignment="Left" Height="23" Margin="198,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
         <TextBox x:Name="tbJSLastName" HorizontalAlignment="Left" Height="23" Margin="198,136,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
         <TextBox x:Name="tbJSEmail" HorizontalAlignment="Left" Height="23" Margin="198,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
         <TextBox x:Name="tbJSPhone" HorizontalAlignment="Left" Height="23" Margin="198,219,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
         <TextBox x:Name="tbJSPassword" HorizontalAlignment="Left" Height="23" Margin="561,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
         <TextBox x:Name="tbJSConfirmPassword" HorizontalAlignment="Left" Height="23" Margin="561,136,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
-        <Button x:Name="btnRegisterJobSeeker" Content="Register" HorizontalAlignment="Left" VerticalAlignment="Top" Width="648" Margin="64,844,0,0" Height="50" Click="btnRegisterJobSeeker_Click"/>
+        <Button x:Name="btnRegisterJobSeeker" Content="Register" HorizontalAlignment="Left" VerticalAlignment="Top" Width="648" Margin="64,286,0,0" Height="50" Click="btnRegisterJobSeeker_Click"/>
 
     </Grid>
 </Window>
