@@ -25,27 +25,34 @@
                     <Label HorizontalAlignment="Left" Margin="59,177,0,0" VerticalAlignment="Top" Height="28" Width="87" Content="Email Address"/>
                     <Label HorizontalAlignment="Left" Margin="59,232,0,0" VerticalAlignment="Top" Height="28" Width="96" Content="Phone Number"/>
                     <Label HorizontalAlignment="Left" Margin="415,53,0,0" VerticalAlignment="Top" Height="28" Width="61" Content="Password"/>
-                    <Button x:Name="btnChangePassword" Content="Change Password" HorizontalAlignment="Left" Margin="415,115,0,0" VerticalAlignment="Top" Width="167" Click="btnChangePassword_Click"/>
+                    <Button x:Name="btnChangePassword" Content="Modify Password" HorizontalAlignment="Left" Margin="415,115,0,0" VerticalAlignment="Top" Width="167" Click="btnChangePassword_Click"/>
                     <Label x:Name="lblNewPassword" Content="New Password : " HorizontalAlignment="Left" Margin="415,179,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lblConfirmNewPassword" Visibility="Hidden" Content="Confirm New Password : " HorizontalAlignment="Left" Margin="415,234,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbAccountPhoneNumber" HorizontalAlignment="Left" Height="23" Margin="160,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="160,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="160,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
+                    <TextBox x:Name="tbaEmail" HorizontalAlignment="Left" Height="23" Margin="160,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
+                    <TextBox x:Name="tbaLastName" HorizontalAlignment="Left" Height="23" Margin="160,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
                     <TextBox x:Name="tbConfirmNewPassword" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="571,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="160,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
+                    <TextBox x:Name="tbaFirstName" HorizontalAlignment="Left" Height="23" Margin="160,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
                     <TextBox x:Name="tbNewPassword" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="571,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="571,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
-                    <Button x:Name="btnUdateAccountInformation" Content="SAVE" HorizontalAlignment="Left" Margin="624,318,0,0" VerticalAlignment="Top" Width="219" Height="39"/>
-
-
-
+                    <TextBox x:Name="tbaPassword" HorizontalAlignment="Left" Height="23" Margin="571,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
+                    <Button x:Name="btnUdateAccountInformation" Content="SAVE" HorizontalAlignment="Left" Margin="59,307,0,0" VerticalAlignment="Top" Width="219" Height="39" Click="btnUdateAccountInformationByID_Click"/>
+                    <Button x:Name="btnUpdatePassword" Content="UPDATE PASSWORD" HorizontalAlignment="Left" Margin="415,307,0,0" VerticalAlignment="Top" Width="219" Height="39" Click="btnUdateAccountInformation_Click" Visibility="Hidden"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Job Search" Margin="0,76,-33,-116">
-                <Grid Background="#FFE5E5E5" Margin="40,0,0,0"/>
+                <Grid Background="#FFE5E5E5" Margin="40,0,0,201">
+                    <Label Content="SEARCH" HorizontalAlignment="Left" Margin="268,56,0,0" VerticalAlignment="Top" Height="115" Width="308" FontSize="72" FontFamily="Palatino Linotype"/>
+                    <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="29" Margin="279,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="247" FontSize="16"></TextBox>
+                    <Button x:Name="btnSearch"  Content="GO" HorizontalAlignment="Left" Margin="526,176,0,0" VerticalAlignment="Top" Width="38" Height="29" Click="btnSearch_Click"/>
+                    <DataGrid x:Name="dgDisplaySearchResult" HorizontalAlignment="Left" Margin="59,273,0,0" VerticalAlignment="Top" Height="432" Width="753"></DataGrid>
+                </Grid>
             </TabItem>
             <TabItem Header="Applied for" Margin="0,116,-33,-156">
-                <Grid Background="#FFE5E5E5" Margin="40,0,0,0"/>
+                <Grid Background="#FFE5E5E5" Margin="40,0,0,646">
+                    <DataGrid x:Name="dgDisplayApplicationHistory" HorizontalAlignment="Left" Margin="54,10,0,0" VerticalAlignment="Top" Height="282" Width="767">
+                        
+                    </DataGrid>
+                </Grid>
             </TabItem>
 
         </TabControl>

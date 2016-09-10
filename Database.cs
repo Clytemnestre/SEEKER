@@ -56,7 +56,7 @@ namespace Seeker
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // Login for employers //////////////////////////////////////////////////////////////////////////////////////////////       
+        // Login for employers ////////////////////////////////////////////////////////////////////////////////////////////     
         public bool GetEmployerByEmail(string eEmail)
         {
             SqlCommand cmd = new SqlCommand("SELECT * FROM Employers WHERE eEmail = @eEmail", conn);
@@ -199,6 +199,31 @@ namespace Seeker
             }
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Update the account information /////////////////////////////////////////////////////////////////////////////////
+        public bool UpdateAccountInformationById(string firstName, string lastName, string email, string phoneNumber)
+        {
+            return true;
+            // SQL
+            /*using (SqlCommand cmd = new SqlCommand("UPDATE JobSeekers SET jsExperience = @jsExperience,  WHERE jsID = @jsID"))
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@jsExperience", updatedExperience);                                                                DATABASE ISSUE
+                cmd.Parameters.AddWithValue("@jsID", Globals.CurrentJobSeeker.JSID);
+                cmd.ExecuteNonQuery();
+                return true;
+            }*/
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Update password ////////////////////////////////////////////////////////////////////////////////////////////////
+
+        public bool UpdatePasswordById(string password)
+        {
+            return true;
+            //SQL
+            // SQL ISSUE - No database access. 
+            // find how to fix it
+        }
     }
 }
 
