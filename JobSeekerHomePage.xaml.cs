@@ -38,7 +38,7 @@ namespace Seeker
             tbaEmail.Text = Globals.CurrentJobSeeker.JSEmail;
             tbAccountPhoneNumber.Text = Globals.CurrentJobSeeker.JSPhone;
             tbaPassword.Text = Globals.CurrentJobSeeker.JSPassword;
-            tbaPassword.IsEnabled = true;
+            // load the previously sent out applications with a GetApplicationsByJobSeekerID 
 
         }
 
@@ -78,9 +78,9 @@ namespace Seeker
             string updatedExperience = tbExperience.Text;
             try
             {
-                if (db.UpdateEducationByID(updatedExperience))
+                if (db.UpdateExperienceByID(updatedExperience))
                 {
-                    tbEducation1.IsEnabled = false;
+                    tbExperience.IsEnabled = false;
                 }
             }
             catch (SqlException ex)
@@ -107,7 +107,7 @@ namespace Seeker
             string lastName = tbaLastName.Text;
             string email = tbaEmail.Text;
             string phoneNumber = tbAccountPhoneNumber.Text;
-
+            MessageBox.Show("1");
             // verify the validity of the new data
             // First name
             if (firstName.Length < 2)
@@ -115,14 +115,14 @@ namespace Seeker
                 MessageBox.Show("First name must be at least two letters long", "Impossible to update your account information", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
+            MessageBox.Show("2");
             // Last name
             if (lastName.Length < 2)
             {
                 MessageBox.Show("Last name must be at least two letters long", "Impossible to update your account information", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
+            MessageBox.Show("3");
             // email address
             Regex emailVerification = new Regex(@"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*" + "@" + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$");
             if (!emailVerification.Match(email).Success)
@@ -130,7 +130,7 @@ namespace Seeker
                 MessageBox.Show("Please enter an email address in a valid format ex: StarKidPotter@Hogwarts.uk", "Registration error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
+            MessageBox.Show("4");
             // phone number
             Regex phoneVerification = new Regex(@"^[0-9]{10}$");
             if (!phoneVerification.Match(phoneNumber).Success)
@@ -138,7 +138,7 @@ namespace Seeker
                 MessageBox.Show("Please enter an email address in a valid format ex: 5145559999", "Registration error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
+            MessageBox.Show("5");
             // call to the method UpdateAccountInformationById() in the database class
             try
             {
@@ -199,14 +199,17 @@ namespace Seeker
                 MessageBox.Show("Please enter a valid search term. EX: 'Nurse'", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+            // call a method SearchByTerm inside the database class and load the results inside the datagrid (binding)
             try
             {
-
+                List<Offer> listOfOffers = db.SearchByTerm(searchTerm);
+                dgDisplaySearchResult.ItemsSource = listOfOffers;
             }
-        }
-
-        
-        
+            catch (Exception ex)
+            {
+                MessageBox.Show("unable to retireve Offers");
+            }
+        }               
     }
 }
 

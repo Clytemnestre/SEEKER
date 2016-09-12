@@ -3,6 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="EmployerHomePage" Height="1000" Width="1000">
     <Grid>
-        
+        <TabControl HorizontalAlignment="Left" Height="970" VerticalAlignment="Top" Width="992" TabStripPlacement="Left">
+            <TabItem Header="Applicants" Margin="0,-2,-55,-39">
+                <Grid Background="#FFE5E5E5" Margin="67,0,0,0">
+                    <DataGrid x:Name="dgJobOffers" HorizontalAlignment="Left" Margin="56,95,0,0" VerticalAlignment="Top" Height="211" Width="737">
+                    </DataGrid>
+                    <Label Content="Select the offer for which you want to see the applicants" HorizontalAlignment="Left" Margin="56,41,0,0" VerticalAlignment="Top" Width="461" FontSize="18"/>
+                    <DataGrid x:Name="dgApplicants" HorizontalAlignment="Left" Margin="56,437,0,0" VerticalAlignment="Top" Height="483" Width="737"/>
+                    <Label Content="Applicants" HorizontalAlignment="Left" Margin="56,385,0,0" VerticalAlignment="Top" Width="97" FontSize="18"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Offers" Margin="0,39,-55,-80">
+                <Grid Background="#FFE5E5E5" Margin="67,0,0,720">
+                    <DataGrid x:Name="dgOffers" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="217" Width="626" SelectionChanged="dgOffers_SelectionChanged"/>
+                    <Button x:Name="btnModifyOffer" Content="Modify" HorizontalAlignment="Left" Margin="669,10,0,0" VerticalAlignment="Top" Width="137" Height="24" IsEnabled="False" Click="btnModifyOffer_Click"/>
+                    <Button x:Name="btnDeleteOffer" Content="Delete" HorizontalAlignment="Left" Margin="669,59,0,0" VerticalAlignment="Top" Width="137" Height="24" IsEnabled="False" Click="btnDeleteOffer_Click"/>
+                    <Button x:Name="btnNewOffer" Content="Add New Offer" HorizontalAlignment="Left" Margin="669,168,0,0" VerticalAlignment="Top" Width="137" Height="59" Click="btnNewOffer_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Account" Margin="0,80,-55,-121">
+                <Grid Background="#FFE5E5E5" Margin="67,0,0,0"/>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>

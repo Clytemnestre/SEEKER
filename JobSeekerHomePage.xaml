@@ -34,7 +34,7 @@
                     <TextBox x:Name="tbConfirmNewPassword" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="571,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
                     <TextBox x:Name="tbaFirstName" HorizontalAlignment="Left" Height="23" Margin="160,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
                     <TextBox x:Name="tbNewPassword" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="571,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
-                    <TextBox x:Name="tbaPassword" HorizontalAlignment="Left" Height="23" Margin="571,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225"/>
+                    <TextBox x:Name="tbaPassword" HorizontalAlignment="Left" Height="23" Margin="571,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" IsEnabled="False"/>
                     <Button x:Name="btnUdateAccountInformation" Content="SAVE" HorizontalAlignment="Left" Margin="59,307,0,0" VerticalAlignment="Top" Width="219" Height="39" Click="btnUdateAccountInformationByID_Click"/>
                     <Button x:Name="btnUpdatePassword" Content="UPDATE PASSWORD" HorizontalAlignment="Left" Margin="415,307,0,0" VerticalAlignment="Top" Width="219" Height="39" Click="btnUdateAccountInformation_Click" Visibility="Hidden"/>
                 </Grid>

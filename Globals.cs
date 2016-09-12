@@ -12,5 +12,7 @@ namespace Seeker
         public static JobSeeker CurrentJobSeeker = new JobSeeker();
         
         public static Employer CurrentEmployer = new Employer();
+
+        public static Offer CurrentOffer = new Offer();
     }
 }

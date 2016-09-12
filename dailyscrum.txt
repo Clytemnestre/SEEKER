@@ -77,3 +77,12 @@ Job seeker homepage
 Where do I need assistance? 
 Learn how to control the tabcontrol (that thing is outta control!)
 ****************************************************************************
+September 12
+What was done?
+Employer Home Page
+
+What will be done?
+Job seeker homepage
+
+Where do I need assistance? 
+make the database work again. I dont know what I did but now, even the connection does not work.
