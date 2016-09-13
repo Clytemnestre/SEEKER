@@ -40,9 +40,9 @@ namespace Seeker
             string title = tbTitle.Text;
             string description = tbDescription.Text;
             int employerID = Globals.CurrentEmployer.EID;
-            /*try
+            try
             {
-                if (*/db.CreateOffer(title, description, employerID);/*))
+                if (db.CreateOffer(title, description, employerID))
                 {
                     MessageBox.Show("Your offer was created", "Success", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
@@ -50,7 +50,7 @@ namespace Seeker
             catch (SqlException ex)
             {
                 MessageBox.Show("We were unable to create your offer", "ERROR", MessageBoxButton.OK, MessageBoxImage.Stop);
-            }*/
+            }
         }
     }
 }

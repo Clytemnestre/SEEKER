@@ -18,7 +18,9 @@ September 7
 What was done?
 Got a github
 Got project approval
-
+****************************************************************************
+September 7
+ 
 What will be done?
 Set up a github.
 Make github work
@@ -34,6 +36,7 @@ The test login throws a SQLexception (The same as during the exam, still unable 
 How to set up a Database with Azure. 
 ****************************************************************************
 September 8 
+
 What was done?
 Login test
 Do the design for the job seeker and employer registration form. 
@@ -49,6 +52,7 @@ Where do I need assistance?
 Everything to do with github
 ****************************************************************************
 September 9 
+
 What was done?
 Login Employer
 set up Github
@@ -64,6 +68,7 @@ Where do I need assistance?
 learn how to make the page communicate
 ****************************************************************************
 September 9 (PRE WEEK END)
+
 What was done?
 employer registration
 Job seeker registration
@@ -78,6 +83,7 @@ Where do I need assistance?
 Learn how to control the tabcontrol (that thing is outta control!)
 ****************************************************************************
 September 12
+
 What was done?
 Employer Home Page
 
@@ -86,3 +92,27 @@ Job seeker homepage
 
 Where do I need assistance? 
 make the database work again. I dont know what I did but now, even the connection does not work.
+****************************************************************************
+September 13
+
+What was done?
+Employer can add/modify/create an offer
+
+What will be done?
+employer can modify his account information
+create the "Applications" table
+add some data inside the database (in every table) for current testing purposes.
+
+Where do I need assistance? 
+Find if it is possible to have only one window for the "create offer" and "modify offer".
+
+
+
+
+
+
+
+
+
+
+

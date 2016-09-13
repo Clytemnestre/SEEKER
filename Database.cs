@@ -354,7 +354,7 @@ namespace Seeker
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@OfferTitle", title);
                 cmd.Parameters.AddWithValue("@OfferDescription", description);
-                cmd.Parameters.AddWithValue("@EmployerID", Globals.CurrentOffer.OfferID);
+                cmd.Parameters.AddWithValue("@EmployerID", Globals.CurrentEmployer.EID);
                 cmd.ExecuteNonQuery();
                 return true;
             }
