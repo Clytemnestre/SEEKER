@@ -41,6 +41,14 @@ namespace Seeker
         public int EmployerID { get; set; }
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Application class //////////////////called volunteer because Application is a reserved word///////////////////////
+    class Volunteer
+    {
+        public int EmployerID { get; set; }
+        public int JobSeekerID { get; set; }
+        public int ApplicationID { get; set; }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Database class ///////////////////////////////////////////////////////////////////////////////////////////////////
     class Database
     {
@@ -256,7 +264,7 @@ namespace Seeker
         public List <Offer> SearchByTerm(string term)
         {
             List<Offer> list = new List<Offer>();
-
+            // SQL
             SqlCommand cmd = new SqlCommand("SELECT * FROM Offers WHERE OfferTitle LIKE '%" + term + "%'", conn);
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
@@ -276,6 +284,113 @@ namespace Seeker
             return list;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Load the information of the selected offer /////////////////////////////////////////////////////////////////////
+        public string GetCompanyNameByID(int employerID)
+        {
+            string nameOfCompany = "";
+            SqlCommand cmd = new SqlCommand("SELECT NameOfCompany FROM Employers WHERE EID = @EID", conn);
+            cmd.Parameters.AddWithValue("@EID", employerID);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    if (reader.Read())
+                    {
+                        nameOfCompany = reader.GetString(reader.GetOrdinal("NameOfCompany"));
+                        
+                    }
+                }
+            }
+            return nameOfCompany;
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Verify that the job seeker has not already applied on the choosen offer ////////////////////////////////////////
+        public bool VerifyApplicationByID(int offerID, int jobSeekerID)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Applications WHERE OfferID = @OfferID AND JobSeekerID = @JobSeekerID", conn);
+            cmd.Parameters.AddWithValue("@OfferID", offerID);
+            cmd.Parameters.AddWithValue("@JobSeekerID", jobSeekerID);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    // if it finds something, it mean that the job seeker has already applied to this offer
+                    return false;
+                } 
+                else 
+                {
+                    return true;
+                }
+            }
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Apply for an Offer /////////////////////////////////////////////////////////////////////////////////////////////
+        public bool ApplyOntoAnOfferByID(int offerID, int jobSeekerID)
+        {
+            // SQL
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO Applications (OfferID, JobSeekerID) VALUES (@OfferID, @JobSeekerID)", conn))
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@OfferID", offerID);
+                cmd.Parameters.AddWithValue("@JobSeekerID", jobSeekerID);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+        }
+
+        // APPLIED FOR /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // get applications by job seeker id //////////////////////////////////////////////////////////////////////////////
+        public List <int> GetApplicationsByJobSeekerID(int jobSeekerID)
+        {
+            List<int> list = new List<int>();
+            // SQL
+            SqlCommand cmd = new SqlCommand("SELECT OfferID FROM Applications WHERE JobSeekerID = @JobSeekerID", conn);
+            cmd.Parameters.AddWithValue("@JobSeekerID", jobSeekerID);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int offerID = reader.GetInt32(reader.GetOrdinal("OfferID"));
+                        list.Add(offerID);
+                    }
+                }
+            }
+            return list;
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // get Offers by OfferID //////////////////////////////////////////////////////////////////////////////
+        public List<Offer> GetOfferById(List<int> listOfOfferID)
+        {
+            List<Offer> listOfOffers = new List<Offer>();
+            foreach (int id in listOfOfferID)
+            {
+                // SQL
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Offers WHERE OfferID = @OfferID", conn);
+                cmd.Parameters.AddWithValue("@OfferID", id);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            int offerId = reader.GetInt32(reader.GetOrdinal("OfferID"));
+                            string title = reader.GetString(reader.GetOrdinal("OfferTitle"));
+                            string description = reader.GetString(reader.GetOrdinal("OfferDescription"));
+                            int employerId = reader.GetInt32(reader.GetOrdinal("EmployerID"));
+                            Offer o = new Offer() { OfferID = offerId, OfferTitle = title, OfferDescription = description, EmployerID = employerId };
+                            listOfOffers.Add(o);
+                        }
+                    }
+                }                
+            }
+            return listOfOffers;
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -293,7 +408,7 @@ namespace Seeker
         public List<Offer> GetOffersByemployerID(int id)
         {
             List<Offer> list = new List<Offer>();
-
+            // SQL
             SqlCommand cmd = new SqlCommand("SELECT * FROM Offers WHERE EmployerID = @EmployerID", conn);
             cmd.Parameters.AddWithValue("@EmployerID", id);
             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -313,6 +428,54 @@ namespace Seeker
             }
             return list;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Get applications for a job offer ///////////////////////////////////////////////////////////////////////////////
+        public List <int> GetApplicationByOfferID(int offerID)
+        {
+            List<int> list = new List<int>();
+            //SQL
+            SqlCommand cmd = new SqlCommand("SELECT JobSeekerID FROM Applications WHERE OfferID = @OfferID", conn);
+            cmd.Parameters.AddWithValue("@OfferID", offerID);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int jobSeekerID = reader.GetInt32(reader.GetOrdinal("JobSeekerID"));
+                        list.Add(jobSeekerID);
+                    }
+                }
+            }
+            return list;
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Get detail info for each of the Job Seekers to display below the offer in the employer home page ///////////////
+        public List <JobSeeker> GetJobSeekerByID(List <int> listOfJobSeekerID)
+        {
+            List <JobSeeker> listOfJobSeekers = new List<JobSeeker>();
+            foreach (int id in listOfJobSeekerID)
+            {
+                SqlCommand cmd = new SqlCommand("SELECT JSFirstName, JSLastName, JSEmail, JSPhone FROM JobSeekers WHERE JSID = @JSID", conn);
+                cmd.Parameters.AddWithValue("@JSID", id);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            string firstName = reader.GetString(reader.GetOrdinal("JSFirstName"));
+                            string lastName = reader.GetString(reader.GetOrdinal("JSLastName"));
+                            string email = reader.GetString(reader.GetOrdinal("JSEmail"));
+                            string phoneNumber = reader.GetString(reader.GetOrdinal("JSPhone"));
+                            JobSeeker js = new JobSeeker() { JSFirstName = firstName, JSLastName = lastName, JSEmail = email, JSPhone = phoneNumber };
+                            listOfJobSeekers.Add(js);
+                        }
+                    }
+                }                
+            }
+            return listOfJobSeekers;
+        }
 
         // OFFERS /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -320,6 +483,7 @@ namespace Seeker
         // Delete a job offer /////////////////////////////////////////////////////////////////////////////////////////////
         public void DeleteOfferByID(int id)
         {
+            // SQL
             using (SqlCommand cmd = new SqlCommand("DELETE FROM Offers WHERE OfferID=@OfferID", conn))
             {
                 cmd.CommandType = System.Data.CommandType.Text;
@@ -359,6 +523,41 @@ namespace Seeker
                 return true;
             }
 
+        }
+
+        // ACCOUNT ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Update the account information /////////////////////////////////////////////////////////////////////////////////
+        public bool UpdateEmployerAccountByID(string nameOfCompany, string email, string phoneNumber)
+        {
+            // SQL
+            using (SqlCommand cmd = new SqlCommand("UPDATE Employers SET NameOfCompany = @NameOfCompany, EEmail = @EEmail, EPhone = @EPhone WHERE EID = @EID", conn))
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@NameOfCompany", nameOfCompany);
+                cmd.Parameters.AddWithValue("@EEmail", email);
+                cmd.Parameters.AddWithValue("@EPhone", phoneNumber);
+                cmd.Parameters.AddWithValue("@EID", Globals.CurrentEmployer.EID);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Update Password ////////////////////////////////////////////////////////////////////////////////////////////////
+        public bool UpdateEmployerPasswordByID(string password)
+        {
+            //SQL
+            using (SqlCommand cmd = new SqlCommand("UPDATE Employers SET EPassword = @EPassword WHERE EID = @EID", conn))
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@EPassword", password);
+                cmd.Parameters.AddWithValue("@EID", Globals.CurrentEmployer.EID);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
         }
     }
 }

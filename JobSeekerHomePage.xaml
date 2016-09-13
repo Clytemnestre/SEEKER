@@ -40,18 +40,34 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Job Search" Margin="0,76,-33,-116">
-                <Grid Background="#FFE5E5E5" Margin="40,0,0,201">
+                <Grid Background="#FFE5E5E5" Margin="40,0,22,5">
                     <Label Content="SEARCH" HorizontalAlignment="Left" Margin="268,56,0,0" VerticalAlignment="Top" Height="115" Width="308" FontSize="72" FontFamily="Palatino Linotype"/>
                     <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="29" Margin="279,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="247" FontSize="16"></TextBox>
                     <Button x:Name="btnSearch"  Content="GO" HorizontalAlignment="Left" Margin="526,176,0,0" VerticalAlignment="Top" Width="38" Height="29" Click="btnSearch_Click"/>
-                    <DataGrid x:Name="dgDisplaySearchResult" HorizontalAlignment="Left" Margin="59,273,0,0" VerticalAlignment="Top" Height="432" Width="753"></DataGrid>
+                    <DataGrid x:Name="dgDisplaySearchResult" HorizontalAlignment="Left" Margin="59,256,0,0" VerticalAlignment="Top" Height="82" Width="753" SelectionChanged="dgDisplaySearchResult_SelectionChanged"></DataGrid>
+                    <Label Content="Title of the Offer : " HorizontalAlignment="Left" Margin="59,375,0,0" VerticalAlignment="Top" Width="106"/>
+                    <TextBlock x:Name="tbOfferTitle" HorizontalAlignment="Left" Margin="65,406,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="747" Height="32"/>
+                    <Label Content="Name of the Company :" HorizontalAlignment="Left" Margin="59,443,0,0" VerticalAlignment="Top" Width="151"/>
+                    <TextBlock x:Name="tbNameOfCompany" HorizontalAlignment="Left" Margin="65,474,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="747" Height="32"><Run Text="..."/></TextBlock>
+                    <Label Content="Description : " HorizontalAlignment="Left" Margin="57,511,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="tbDescriptionOfJob" HorizontalAlignment="Left" Margin="63,542,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="747" Height="266"><Run Text="..."/></TextBlock>
+                    <Button x:Name="btnApplyOnOffer" Content="Apply on this Job Offer" HorizontalAlignment="Left" Margin="57,877,0,0" VerticalAlignment="Top" Width="753" Height="58" Click="btnApplyOnOffer_Click"/>
+                    <Label Content="Offer ID : " HorizontalAlignment="Left" Margin="598,375,0,0" VerticalAlignment="Top" Width="60"/>
+                    <TextBlock x:Name="tbOfferID" HorizontalAlignment="Left" Margin="681,380,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="96" Height="21"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Applied for" Margin="0,116,-33,-156">
-                <Grid Background="#FFE5E5E5" Margin="40,0,0,646">
-                    <DataGrid x:Name="dgDisplayApplicationHistory" HorizontalAlignment="Left" Margin="54,10,0,0" VerticalAlignment="Top" Height="282" Width="767">
-                        
+                <Grid Background="#FFE5E5E5" Margin="40,0,13,171">
+                    <DataGrid x:Name="dgDisplayApplicationHistory" HorizontalAlignment="Left" Margin="54,10,0,0" VerticalAlignment="Top" Height="159" Width="767" SelectionChanged="dgDisplayApplicationHistory_SelectionChanged">
                     </DataGrid>
+                    <Label Content="Title of the Offer : " HorizontalAlignment="Left" Margin="54,202,0,0" VerticalAlignment="Top" Width="108"/>
+                    <Label Content="Offer ID : " HorizontalAlignment="Left" Margin="631,202,0,0" VerticalAlignment="Top" Width="84"/>
+                    <Label Content="Name of the Company : " HorizontalAlignment="Left" Margin="54,284,0,0" VerticalAlignment="Top" Width="141"/>
+                    <Label Content="Description : " HorizontalAlignment="Left" Margin="54,369,0,0" VerticalAlignment="Top" Width="88"/>
+                    <TextBlock x:Name="tbTitleOffer" HorizontalAlignment="Left" Margin="54,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="767" Height="22" Text="..."/>
+                    <TextBlock x:Name="tbIDOfOffer" HorizontalAlignment="Left" Margin="720,205,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="66" Height="23" RenderTransformOrigin="0.589,-1.092"/>
+                    <TextBlock x:Name="tbNameOfTheCompany" HorizontalAlignment="Left" Margin="54,324,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="767" Height="28"/>
+                    <TextBlock x:Name="tbJobDescription" HorizontalAlignment="Left" Margin="54,400,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Height="342" Width="767"/>
                 </Grid>
             </TabItem>
 

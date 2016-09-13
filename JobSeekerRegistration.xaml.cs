@@ -69,7 +69,7 @@ namespace Seeker
             Regex phoneVerification = new Regex(@"^[0-9]{10}$");
             if (!phoneVerification.Match(phone).Success)
             {
-                MessageBox.Show("Please enter an email address in a valid format ex: 5145559999", "Registration error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please enter your phone number in a valid format ex: 5145559999", "Registration error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

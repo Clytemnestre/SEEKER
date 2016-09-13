@@ -6,11 +6,12 @@
         <TabControl HorizontalAlignment="Left" Height="970" VerticalAlignment="Top" Width="992" TabStripPlacement="Left">
             <TabItem Header="Applicants" Margin="0,-2,-55,-39">
                 <Grid Background="#FFE5E5E5" Margin="67,0,0,0">
-                    <DataGrid x:Name="dgJobOffers" HorizontalAlignment="Left" Margin="56,95,0,0" VerticalAlignment="Top" Height="211" Width="737">
+                    <DataGrid x:Name="dgJobOffers" HorizontalAlignment="Left" Margin="56,95,0,0" VerticalAlignment="Top" Height="211" Width="737" SelectionChanged="dgJobOffers_SelectionChanged">
                     </DataGrid>
                     <Label Content="Select the offer for which you want to see the applicants" HorizontalAlignment="Left" Margin="56,41,0,0" VerticalAlignment="Top" Width="461" FontSize="18"/>
-                    <DataGrid x:Name="dgApplicants" HorizontalAlignment="Left" Margin="56,437,0,0" VerticalAlignment="Top" Height="483" Width="737"/>
+                    <DataGrid x:Name="dgApplicants" HorizontalAlignment="Left" Margin="56,437,0,0" VerticalAlignment="Top" Height="483" Width="737" SelectionChanged="dgApplicants_SelectionChanged"/>
                     <Label Content="Applicants" HorizontalAlignment="Left" Margin="56,385,0,0" VerticalAlignment="Top" Width="97" FontSize="18"/>
+                    <Button x:Name="seeApplicantDetails" Content="See details of applicant" HorizontalAlignment="Left" Margin="626,385,0,0" VerticalAlignment="Top" Width="167" Height="34" Click="seeApplicantDetails_Click" IsEnabled="False"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Offers" Margin="0,39,-55,-80">
@@ -22,7 +23,23 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Account" Margin="0,80,-55,-121">
-                <Grid Background="#FFE5E5E5" Margin="67,0,0,0"/>
+                <Grid Background="#FFE5E5E5" Margin="65,10,35,397">
+                    <Label Content="Name of Company : " HorizontalAlignment="Left" Margin="231,24,0,0" VerticalAlignment="Top" Width="117"/>
+                    <TextBox x:Name="tbNameOfCompany" HorizontalAlignment="Left" Height="23" Margin="353,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="274"/>
+                    <Label Content="Email : " HorizontalAlignment="Left" Margin="237,79,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Phone Number : " HorizontalAlignment="Left" Margin="237,132,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="274" Margin="353,82,0,0"/>
+                    <TextBox x:Name="tbPhoneNumber" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="274" Margin="353,135,0,0"/>
+                    <Label Content="Change Your Password :" HorizontalAlignment="Left" Margin="231,262,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Current Password:" HorizontalAlignment="Left" Margin="231,321,0,0" VerticalAlignment="Top"/>
+                    <Label Content="New Password :" HorizontalAlignment="Left" Margin="231,368,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Confirm New Password :" HorizontalAlignment="Left" Margin="231,415,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbCurrentPassword" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="237" Margin="390,324,0,0"/>
+                    <TextBox x:Name="tbNewPassword" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="237" Margin="390,368,0,0"/>
+                    <TextBox x:Name="tbConfirmNewPassword" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="237" Margin="390,418,0,0"/>
+                    <Button x:Name="btnUpdateAccountInformation" Content="Update Account Information" HorizontalAlignment="Left" Margin="448,205,0,0" VerticalAlignment="Top" Width="179" Click="btnUpdateAccountInformation_Click"/>
+                    <Button Content="Update Password" HorizontalAlignment="Left" Margin="448,492,0,0" VerticalAlignment="Top" Width="179" Click="Button_Click"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

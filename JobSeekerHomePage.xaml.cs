@@ -38,7 +38,19 @@ namespace Seeker
             tbaEmail.Text = Globals.CurrentJobSeeker.JSEmail;
             tbAccountPhoneNumber.Text = Globals.CurrentJobSeeker.JSPhone;
             tbaPassword.Text = Globals.CurrentJobSeeker.JSPassword;
+
             // load the previously sent out applications with a GetApplicationsByJobSeekerID 
+            try
+            {
+                List<int> listOfOfferID = db.GetApplicationsByJobSeekerID(Globals.CurrentJobSeeker.JSID);
+                List<Offer> listOfOffers = db.GetOfferById(listOfOfferID);
+                dgDisplayApplicationHistory.ItemsSource = listOfOffers;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Could not load your applications", "ERROR", MessageBoxButton.OK, MessageBoxImage.Stop);
+                throw ex;
+            }
 
         }
 
@@ -209,7 +221,84 @@ namespace Seeker
             {
                 MessageBox.Show("unable to retireve Offers");
             }
-        }               
+        }
+
+        // see the details of the selected Job offer
+        private void dgDisplaySearchResult_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Offer o = (Offer)dgDisplaySearchResult.SelectedItem;
+            int employerID = o.EmployerID;
+            string companyName = "";
+            try
+            {
+                companyName = db.GetCompanyNameByID(employerID);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("unable to retireve the name of the company");
+                return;
+            }
+            tbOfferID.Text = o.OfferID.ToString();
+            tbOfferTitle.Text = o.OfferTitle;
+            tbNameOfCompany.Text = companyName;
+            tbDescriptionOfJob.Text = o.OfferDescription;
+
+        }
+
+        // apply on a job offer
+        private void btnApplyOnOffer_Click(object sender, RoutedEventArgs e)
+        {
+            int offerID = int.Parse(tbOfferID.Text);
+            try
+            {
+                // the first step is to check that the job seeker has not already applied to this job
+                if (db.VerifyApplicationByID(offerID, Globals.CurrentJobSeeker.JSID))
+                {
+                    try
+                    {
+                        // secodn step - add the application
+                        if (db.ApplyOntoAnOfferByID(offerID, Globals.CurrentJobSeeker.JSID))
+                        {
+                            MessageBox.Show("Your offer was received");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("We were unable to send your offer");
+                    }
+                }
+                else if (!db.VerifyApplicationByID(offerID, Globals.CurrentJobSeeker.JSID))
+                {
+                    MessageBox.Show("You have already applied on this offer");
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("unable to make the appropriate verifications");
+                return;
+            }
+        }
+
+        // see the detail of the offer on which you applied
+        private void dgDisplayApplicationHistory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Offer o = (Offer)dgDisplayApplicationHistory.SelectedItem;
+            int employerID = o.EmployerID;
+            string companyName = "";
+            try
+            {
+                companyName = db.GetCompanyNameByID(employerID);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("unable to retireve the name of the company");
+                return;
+            }
+            tbIDOfOffer.Text = o.OfferID.ToString();
+            tbTitleOffer.Text = o.OfferTitle;
+            tbNameOfTheCompany.Text = companyName;
+            tbJobDescription.Text = o.OfferDescription;
+        }    
     }
 }
 

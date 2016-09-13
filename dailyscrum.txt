@@ -105,6 +105,22 @@ add some data inside the database (in every table) for current testing purposes.
 
 Where do I need assistance? 
 Find if it is possible to have only one window for the "create offer" and "modify offer".
+****************************************************************************
+September 14
+
+What was done?
+employer can modify his account information
+create the "Applications" table
+add some data inside the database (in every table) for current testing purposes.
+Employer can see who has applied to each of their offers
+Job seeker can apply on an offer
+
+
+What will be done?
+
+
+Where do I need assistance? 
+
 
 
 
