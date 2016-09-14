@@ -65,6 +65,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="JobSeekerDetailInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="JobSeekerHomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +96,9 @@
       <DependentUpon>EmployerRegistration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Globals.cs" />
+    <Compile Include="JobSeekerDetailInformation.xaml.cs">
+      <DependentUpon>JobSeekerDetailInformation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="JobSeekerHomePage.xaml.cs">
       <DependentUpon>JobSeekerHomePage.xaml</DependentUpon>
     </Compile>

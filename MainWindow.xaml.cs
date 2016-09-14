@@ -57,7 +57,7 @@ namespace Seeker
 
             if (!db.GetEmployerByEmail(eEmail))
             {
-                MessageBox.Show("You are not yet registered - Unicorn & glitter 4EVA - thug life and stuff - Toronto is overrated");
+                MessageBox.Show("You are not yet registered");
                 return;
             }
 
@@ -65,7 +65,7 @@ namespace Seeker
             {
                 if (Globals.CurrentEmployer.EPassword != eTryPassword)
                 {
-                    MessageBox.Show("WRONG PASSWORD, good luck remembering it! - Unicorn & glitter 4EVA - thug life and stuff - Toronto is overrated");
+                    MessageBox.Show("Wrong password");
                     return;
                 }
                 else
@@ -85,7 +85,7 @@ namespace Seeker
 
             if (!db.GetJobSeekerByEmail(jsEmail))
             {
-                MessageBox.Show("You are not yet registered - Unicorn & glitter 4EVA - thug life and stuff - Toronto is overrated");
+                MessageBox.Show("You are not yet registered");
                 return;
             }
 
@@ -93,7 +93,7 @@ namespace Seeker
             {
                 if (Globals.CurrentJobSeeker.JSPassword != jsTryPassword)
                 {
-                    MessageBox.Show("WRONG PASSWORD, good luck remembering it! - Unicorn & glitter 4EVA - thug life and stuff - Toronto is overrated");
+                    MessageBox.Show("Wrong password");
                     return;
                 }
                 else
@@ -104,6 +104,5 @@ namespace Seeker
             }
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     }
 }

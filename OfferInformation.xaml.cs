@@ -37,7 +37,18 @@ namespace Seeker
         private void btnUpdateOffer_Click(object sender, RoutedEventArgs e)
         {
             string title = tbTitle.Text;
+            if (title.Length < 5)
+            {
+                MessageBox.Show("The title of your offer must be at least 5 characters long");
+                return;
+            }
+
             string description = tbDescription.Text;
+            if (description.Length < 30)
+            {
+                MessageBox.Show("The description of the job offer must contain at least 30 characters");
+                return;
+            }
             try
             {
                 if (db.UpdateOfferById(title, description))

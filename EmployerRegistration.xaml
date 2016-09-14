@@ -8,13 +8,13 @@
         <Label Content="Your email address : " HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Width="214" FontSize="20"/>
         <Label Content="Choose a password : " HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top" Width="193" FontSize="20"/>
         <Label Content="Phone Number of the enterprise :" HorizontalAlignment="Left" Margin="10,394,0,0" VerticalAlignment="Top" Width="312" FontSize="20"/>
-        <TextBox x:Name="tbEEmailAddress" HorizontalAlignment="Left" Height="35" Margin="208,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="497" FontSize="20"/>
-        <TextBox x:Name="tbEChoosenPassword" HorizontalAlignment="Left" Height="35" Margin="208,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="497" FontSize="20"/>
-        <TextBox x:Name="tbENameOfCie" HorizontalAlignment="Left" Height="35" Margin="242,328,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="463" FontSize="20"/>
-        <TextBox x:Name="tbEPhoneNumber" HorizontalAlignment="Left" Height="35" Margin="322,396,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="383" FontSize="20"/>
-        <Button x:Name="btnRegisterEmployer" Content="Register" HorizontalAlignment="Left" Margin="488,463,0,0" VerticalAlignment="Top" Width="217" Height="40" FontSize="20" Click="btnRegisterEmployer_Click"/>
+        <TextBox TabIndex="0" x:Name="tbEEmailAddress" HorizontalAlignment="Left" Height="35" Margin="208,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="497" FontSize="20"/>
+        <TextBox TabIndex="1" x:Name="tbEChoosenPassword" HorizontalAlignment="Left" Height="35" Margin="208,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="497" FontSize="20"/>
+        <TextBox TabIndex="3" x:Name="tbENameOfCie" HorizontalAlignment="Left" Height="35" Margin="242,328,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="463" FontSize="20"/>
+        <TextBox TabIndex="4" x:Name="tbEPhoneNumber" HorizontalAlignment="Left" Height="35" Margin="322,396,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="383" FontSize="20"/>
+        <Button TabIndex="5" x:Name="btnRegisterEmployer" Content="Register" HorizontalAlignment="Left" Margin="488,463,0,0" VerticalAlignment="Top" Width="217" Height="40" FontSize="20" Click="btnRegisterEmployer_Click"/>
         <Label Content="Confirm Password : " HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="193" FontSize="20"/>
-        <TextBox x:Name="tbEChoosenPasswordConfirm" HorizontalAlignment="Left" Height="35" Margin="208,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="497" FontSize="20"/>
+        <TextBox TabIndex="2" x:Name="tbEChoosenPasswordConfirm" HorizontalAlignment="Left" Height="35" Margin="208,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="497" FontSize="20"/>
 
     </Grid>
 </Window>

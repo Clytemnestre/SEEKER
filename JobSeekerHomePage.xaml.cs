@@ -119,7 +119,6 @@ namespace Seeker
             string lastName = tbaLastName.Text;
             string email = tbaEmail.Text;
             string phoneNumber = tbAccountPhoneNumber.Text;
-            MessageBox.Show("1");
             // verify the validity of the new data
             // First name
             if (firstName.Length < 2)
@@ -127,14 +126,12 @@ namespace Seeker
                 MessageBox.Show("First name must be at least two letters long", "Impossible to update your account information", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            MessageBox.Show("2");
             // Last name
             if (lastName.Length < 2)
             {
                 MessageBox.Show("Last name must be at least two letters long", "Impossible to update your account information", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            MessageBox.Show("3");
             // email address
             Regex emailVerification = new Regex(@"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*" + "@" + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$");
             if (!emailVerification.Match(email).Success)
@@ -142,7 +139,6 @@ namespace Seeker
                 MessageBox.Show("Please enter an email address in a valid format ex: StarKidPotter@Hogwarts.uk", "Registration error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            MessageBox.Show("4");
             // phone number
             Regex phoneVerification = new Regex(@"^[0-9]{10}$");
             if (!phoneVerification.Match(phoneNumber).Success)
@@ -150,7 +146,6 @@ namespace Seeker
                 MessageBox.Show("Please enter an email address in a valid format ex: 5145559999", "Registration error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            MessageBox.Show("5");
             // call to the method UpdateAccountInformationById() in the database class
             try
             {
@@ -205,6 +200,7 @@ namespace Seeker
         // Event handler for the search button
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+
             string searchTerm = tbSearch.Text;
             if (searchTerm.Length < 3)
             {
@@ -215,7 +211,7 @@ namespace Seeker
             try
             {
                 List<Offer> listOfOffers = db.SearchByTerm(searchTerm);
-                dgDisplaySearchResult.ItemsSource = listOfOffers;
+                 dgDisplaySearchResult.ItemsSource = listOfOffers;
             }
             catch (Exception ex)
             {
@@ -228,6 +224,7 @@ namespace Seeker
         {
             Offer o = (Offer)dgDisplaySearchResult.SelectedItem;
             int employerID = o.EmployerID;
+            // get the name of the company that posted the offer by employerID
             string companyName = "";
             try
             {
@@ -256,9 +253,21 @@ namespace Seeker
                 {
                     try
                     {
-                        // secodn step - add the application
+                        // second step - add the application
                         if (db.ApplyOntoAnOfferByID(offerID, Globals.CurrentJobSeeker.JSID))
                         {
+                            // reload the history of application so that the info in the "applied for" tab is correct
+                            try
+                            {
+                                List<int> listOfOfferID = db.GetApplicationsByJobSeekerID(Globals.CurrentJobSeeker.JSID);
+                                List<Offer> listOfOffers = db.GetOfferById(listOfOfferID);
+                                dgDisplayApplicationHistory.ItemsSource = listOfOffers;
+                            }
+                            catch (SqlException ex)
+                            {
+                                MessageBox.Show("Could not load your applications", "ERROR", MessageBoxButton.OK, MessageBoxImage.Stop);
+                                throw ex;
+                            }
                             MessageBox.Show("Your offer was received");
                         }
                     }
@@ -284,6 +293,7 @@ namespace Seeker
         {
             Offer o = (Offer)dgDisplayApplicationHistory.SelectedItem;
             int employerID = o.EmployerID;
+            // get the name of the company that posted the offer by employerID  /// CODE REPETITION, COULD/SHOULD CREATE A METHOD - running out of time.
             string companyName = "";
             try
             {

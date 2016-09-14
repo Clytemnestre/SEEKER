@@ -14,11 +14,6 @@ Figure out how to create a log in (test log in)
 Where do I need assistance? 
 Everything to do with the github. 
 ****************************************************************************
-September 7 
-What was done?
-Got a github
-Got project approval
-****************************************************************************
 September 7
  
 What will be done?
@@ -117,9 +112,31 @@ Job seeker can apply on an offer
 
 
 What will be done?
-
+Employer can see the detail information of who applied for one of their offer
+Employer can print the detail information. 
+clean up the code / get rid of repetition by creating methods. 
+create proper bindnig for the dataGrip displaying information
+~wish~ 
+job seeker can upload a resume
+employer can see/print the resume of their applicants
 
 Where do I need assistance? 
+How to print. 
+upload a pdf/ see a pdf/ print a pdf
+****************************************************************************
+September 15
+
+What was done?
+Employer can see the detail information of who applied for one of their offer
+Employer can print the detail information. 
+create proper binding for the dataGrid displaying information
+
+What will be done?
+nunit testing
+create presentation
+
+Where do I need assistance? 
+what is nunit testing / how to use it.
 
 
 

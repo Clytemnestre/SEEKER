@@ -45,7 +45,7 @@ namespace Seeker
             catch (SqlException ex)
             {
                 MessageBox.Show("Could not load your offers", "ERROR", MessageBoxButton.OK, MessageBoxImage.Stop);
-                throw ex;
+                return; ;
             }
 
         }
@@ -85,6 +85,7 @@ namespace Seeker
         // delete the selected offer
         private void btnDeleteOffer_Click(object sender, RoutedEventArgs e)
         {
+            // confirmation of deletion
             MessageBoxResult result = MessageBox.Show("Are you sure you want to delete the selected record", "Action", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             Offer o = (Offer)dgOffers.SelectedItem;
@@ -175,6 +176,7 @@ namespace Seeker
 
         }
 
+        // update the password
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // verify that the current password entered is valid
@@ -215,43 +217,27 @@ namespace Seeker
                 return;
             }
 
-            
-        }
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        // to do FINISH IT!!
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
 
-        // enable / disable the see applicant details button 
+        }
+
+        // enable the see applicant details button 
         private void dgApplicants_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-                seeApplicantDetails.IsEnabled = true;
+            seeApplicantDetails.IsEnabled = true;
         }
 
-        //
+        // open a new window with the applicants information inside. 
         private void seeApplicantDetails_Click(object sender, RoutedEventArgs e)
         {
-
+            JobSeeker jobSeeker = (JobSeeker)dgApplicants.SelectedItem;
+            Globals.CurrentJobSeeker.JSFirstName = jobSeeker.JSFirstName;
+            Globals.CurrentJobSeeker.JSLastName = jobSeeker.JSLastName;
+            Globals.CurrentJobSeeker.JSPhone = jobSeeker.JSPhone;
+            Globals.CurrentJobSeeker.JSEmail = jobSeeker.JSEmail;
+            Globals.CurrentJobSeeker.JSEducation = jobSeeker.JSEducation;
+            Globals.CurrentJobSeeker.JSsExperience = jobSeeker.JSsExperience;
+            JobSeekerDetailInformation dialog = new JobSeekerDetailInformation();
+            dialog.ShowDialog();
         }
     }
 }

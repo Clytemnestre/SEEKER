@@ -4,11 +4,11 @@
         Title="MainWindow" Height="800.000" Width="800.000">
     <Grid Background="#FFEAD0FF">
         <Rectangle Fill="#FF3BC9C9" HorizontalAlignment="Left" Height="650" Stroke="#FF3BC9C9" VerticalAlignment="Top" Width="10" Margin="390,50,0,0"/>
-        <TextBox x:Name="tbEEmailAddress" HorizontalAlignment="Left" Height="34" Margin="73,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" FontSize="20"/>
-        <TextBox x:Name="tbJSEmailAddress" HorizontalAlignment="Left" Height="34" Margin="483,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" FontSize="20"/>
-        <Button x:Name="btnELogIn" Content="Log In" HorizontalAlignment="Left" Margin="73,441,0,0" VerticalAlignment="Top" Width="234" Height="35" Click="btnELogIn_Click"/>
+        <TextBox TabIndex="0" x:Name="tbEEmailAddress" HorizontalAlignment="Left" Height="34" Margin="73,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" FontSize="20"/>
+        <TextBox TabIndex="3" x:Name="tbJSEmailAddress" HorizontalAlignment="Left" Height="34" Margin="483,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" FontSize="20"/>
+        <Button TabIndex="2" x:Name="btnELogIn" Content="Log In" HorizontalAlignment="Left" Margin="73,441,0,0" VerticalAlignment="Top" Width="234" Height="35" Click="btnELogIn_Click"/>
         <Button x:Name="btnERegister" Content="Register" HorizontalAlignment="Left" Margin="73,514,0,0" VerticalAlignment="Top" Width="234" Height="35" Click="btnERegister_Click"/>
-        <Button x:Name="btnJSLogIn" Content="Log In" HorizontalAlignment="Left" Margin="483,441,0,0" VerticalAlignment="Top" Width="234" Height="35" Click="btnJSLogIn_Click"/>
+        <Button TabIndex="5" x:Name="btnJSLogIn" Content="Log In" HorizontalAlignment="Left" Margin="483,441,0,0" VerticalAlignment="Top" Width="234" Height="35" Click="btnJSLogIn_Click"/>
         <Button x:Name="btnJSRegister" Content="Register" HorizontalAlignment="Left" Margin="483,514,0,0" VerticalAlignment="Top" Width="234" Height="35" RenderTransformOrigin="2.065,0.14" Click="btnJSRegister_Click"/>
         <Label Content="Email Address" HorizontalAlignment="Left" Margin="127,251,0,0" VerticalAlignment="Top" Width="136" FontSize="20"/>
         <Label Content="Email Address" HorizontalAlignment="Left" Margin="536,252,0,0" VerticalAlignment="Top" Width="136" FontSize="20"/>
@@ -18,8 +18,8 @@
         <Label Content="or : " HorizontalAlignment="Left" Margin="581,477,0,0" VerticalAlignment="Top" FontSize="20" Width="40"/>
         <Label Content="EMPLOYERS" HorizontalAlignment="Left" Margin="85,144,0,0" VerticalAlignment="Top" Width="210" Height="58" FontSize="36"/>
         <Label Content="JOB SEEKERS" HorizontalAlignment="Left" Margin="483,144,0,0" VerticalAlignment="Top" Width="218" Height="58" FontSize="36"/>
-        <TextBox x:Name="tbEPassword" HorizontalAlignment="Left" Height="33" Margin="73,386,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" FontSize="20"/>
-        <TextBox x:Name="tbJSPassword" HorizontalAlignment="Left" Height="33" Margin="483,386,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" FontSize="20"/>
+        <TextBox TabIndex="1" x:Name="tbEPassword" HorizontalAlignment="Left" Height="33" Margin="73,386,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" FontSize="20"/>
+        <TextBox TabIndex="4" x:Name="tbJSPassword" HorizontalAlignment="Left" Height="33" Margin="483,386,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" FontSize="20"/>
 
     </Grid>
 </Window>

@@ -456,7 +456,7 @@ namespace Seeker
             List <JobSeeker> listOfJobSeekers = new List<JobSeeker>();
             foreach (int id in listOfJobSeekerID)
             {
-                SqlCommand cmd = new SqlCommand("SELECT JSFirstName, JSLastName, JSEmail, JSPhone FROM JobSeekers WHERE JSID = @JSID", conn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM JobSeekers WHERE JSID = @JSID", conn);
                 cmd.Parameters.AddWithValue("@JSID", id);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -468,7 +468,9 @@ namespace Seeker
                             string lastName = reader.GetString(reader.GetOrdinal("JSLastName"));
                             string email = reader.GetString(reader.GetOrdinal("JSEmail"));
                             string phoneNumber = reader.GetString(reader.GetOrdinal("JSPhone"));
-                            JobSeeker js = new JobSeeker() { JSFirstName = firstName, JSLastName = lastName, JSEmail = email, JSPhone = phoneNumber };
+                            string education = reader.GetString(reader.GetOrdinal("JSEducation"));
+                            string experience = reader.GetString(reader.GetOrdinal("jsExperience"));
+                            JobSeeker js = new JobSeeker() { JSFirstName = firstName, JSLastName = lastName, JSEmail = email, JSPhone = phoneNumber, JSEducation = education, JSsExperience = experience};
                             listOfJobSeekers.Add(js);
                         }
                     }
