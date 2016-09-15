@@ -129,7 +129,7 @@ September 15
 What was done?
 Employer can see the detail information of who applied for one of their offer
 Employer can print the detail information. 
-create proper binding for the dataGrid displaying information
+create proper binding for the dataGrids displaying information
 
 What will be done?
 nunit testing

@@ -9,7 +9,7 @@ using System.Windows;
 namespace Seeker
 {
     // Employer class ///////////////////////////////////////////////////////////////////////////////////////////////////
-    class Employer
+    public class Employer
     {
         public int EID {get; set;}
         public string NameOfCompany { get; set; }
@@ -20,7 +20,7 @@ namespace Seeker
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // JobSeeker class //////////////////////////////////////////////////////////////////////////////////////////////////
-    class JobSeeker
+    public class JobSeeker
     {
         public int JSID { get; set; }
         public string JSFirstName { get; set; }
@@ -33,7 +33,7 @@ namespace Seeker
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Offer class //////////////////////////////////////////////////////////////////////////////////////////////////////
-    class Offer
+    public class Offer
     {
         public int OfferID { get; set; }
         public string OfferTitle { get; set; }
@@ -42,7 +42,7 @@ namespace Seeker
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Application class //////////////////called volunteer because Application is a reserved word///////////////////////
-    class Volunteer
+    public class Volunteer
     {
         public int EmployerID { get; set; }
         public int JobSeekerID { get; set; }
@@ -50,7 +50,7 @@ namespace Seeker
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Database class ///////////////////////////////////////////////////////////////////////////////////////////////////
-    class Database
+    public class Database
     {
         public int JOBSEEKERID = 0;
         const string CONN_STRING = @"Data Source=ipd8vs.database.windows.net;Initial Catalog=seeker;Integrated Security=False;User ID=sqladmin;Password=IPD8rocks!;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
