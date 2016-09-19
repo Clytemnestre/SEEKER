@@ -120,7 +120,6 @@ namespace Seeker
         {
             Offer offer = (Offer)dgOffers.SelectedItem;
             Globals.CurrentOffer = offer;
-            MessageBox.Show(Globals.CurrentOffer.OfferDescription);
             OfferInformation dialog = new OfferInformation();
             dialog.Show();
         }

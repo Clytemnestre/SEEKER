@@ -29,8 +29,10 @@ namespace Seeker
         // print the detail information
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
+            // declare and initialize print dialog
             PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
 
+            // hide the print button and print the window if the option is choosen
             if (printDlg.ShowDialog() == true)
             {
                 // hide the button before printing it

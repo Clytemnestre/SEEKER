@@ -142,11 +142,11 @@ namespace Seeker
         {
             // find a way to warn if email is already in use
             // SQL
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO Employers (nameOfCie, eEmail, ephone, ePassword) VALUES (@nameOfCie, @eEmail, @ephone, @ePassword)", conn))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO Employers (NameOfCompany, eEmail, ephone, ePassword) VALUES (@NameOfCompany, @eEmail, @ephone, @ePassword)", conn))
             {
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Connection = conn;
-                cmd.Parameters.AddWithValue("@nameOfCie", employer.NameOfCompany);
+                cmd.Parameters.AddWithValue("@NameOfCompany", employer.NameOfCompany);
                 cmd.Parameters.AddWithValue("@eEmail", employer.EEmail);
                 cmd.Parameters.AddWithValue("@ephone", employer.EPhone);
                 cmd.Parameters.AddWithValue("@ePassword", employer.EPassword);
@@ -207,13 +207,11 @@ namespace Seeker
             // SQL
             using (SqlCommand cmd = new SqlCommand("UPDATE JobSeekers SET jsExperience = @jsExperience WHERE jsID = @jsID"))
             {
-                MessageBox.Show("2");
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@jsExperience", updatedExperience);
                 cmd.Parameters.AddWithValue("@jsID", Globals.CurrentJobSeeker.JSID);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("3");
                 return true;
             }
         }

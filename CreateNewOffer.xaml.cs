@@ -55,6 +55,7 @@ namespace Seeker
             {
                 if (db.CreateOffer(title, description, employerID))
                 {
+                    this.Close();
                     MessageBox.Show("Your offer was created", "Success", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
             }

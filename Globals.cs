@@ -8,7 +8,6 @@ namespace Seeker
 {
     class Globals
     {
-        //public static int JobSeekerID;
         public static JobSeeker CurrentJobSeeker = new JobSeeker();
         
         public static Employer CurrentEmployer = new Employer();
